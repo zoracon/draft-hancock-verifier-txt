@@ -105,10 +105,11 @@ Value: A statement declaring the Verifier's commitment to supporting and enforci
 
 Value: A URL or email address specifically dedicated to reporting misuse or abuse of digital ID requests by the Verifier
 - Example: `Abuse-Reporting-Mechanism: mailto:abuse@example.com`
+  
+# Optional Fields
 
-    
-Optional Fields
 The following fields are OPTIONAL but RECOMMENDED:
+
 `Verifier-ID-Registry`
 Value: A URL pointing to the Verifier's entry in a recognized Verifier Registry.This helps establish greater accountability and trust by linking to a broader oversight system.
 - Example: `Verifier-ID-Registry: https://verifier-registry.example.org/id/example-retail`
