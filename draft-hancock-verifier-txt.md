@@ -56,6 +56,7 @@ To foster trust and accountability, mechanisms are needed to ensure verifiers cl
 # Conventions and Definitions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+
 • Verifier: An entity (e.g., website, application, physical establishment) that requests and verifies digital identity credentials from a Holder
 
 • Holder: An individual who possesses and presents a digital identity credential
@@ -79,10 +80,12 @@ The following fields MUST be present in a `verifier.txt` file:
 `Verifier-Name`
     ◦ Value: The official, legal name of the Verifier entity
     ◦ Example: `Verifier-Name: Example Retail Inc.`
+    
 `Contact`
     ◦ Value: An email address or URL for inquiries, support, and abuse reporting
     - This should be actively monitored.
     ◦ Example: `Contact: mailto:privacy@example.com or Contact: https://example.com/privacy-inquiries`
+    
 `Purpose-of-Verification`
     ◦ Value: A clear and concise statement describing the explicit purpose for requesting digital ID information
     - This helps prevent "mission creep" and ensures transparency about why data is needed
@@ -90,26 +93,31 @@ The following fields MUST be present in a `verifier.txt` file:
         ▪ `Purpose-of-Verification: To verify age for access to adult content.`
         ▪ `Purpose-of-Verification: To confirm identity for account creation and legal compliance.`
         ▪ `Purpose-of-Verification: To verify eligibility for employer-provided benefits.`
+        
 `Requested-Attributes`
     ◦ Value: A comma-separated list of the specific attributes the Verifier may request. Each attribute SHOULD be accompanied by a notation indicating whether it is requested via Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain text)
     - This directly supports empowered selective disclosure
     - Examples:
         ▪ `Requested-Attributes: age_over_21 (ZKP), family_name (SD), email_domain (SD), driving_privileges (FD)`
         ▪ `Requested-Attributes: age_over_18 (ZKP)`
+        
 `Data-Retention-Policy`
     ◦ Value: A URL linking to the Verifier's comprehensive data retention policy, or a brief summary of how long collected data is kept and for what purpose
     - This addresses the concern that verifiers might store collected information indefinitely
     ◦ Example: `Data-Retention-Policy: https://example.com/privacy#data-retention`
     ◦ Summary Example: `Data-Retention-Policy: Age verification logs retained for 90 days for audit purposes. No explicit personal identifiers stored.`
+    
 `Data-Sharing-Policy`
     ◦ Value: A URL linking to the Verifier's comprehensive data sharing policy, or a brief summary of whether and how collected data is shared with third parties (e.g., data brokers, other businesses, government agencies)
     - This directly confronts the risk of data pooling and sale of user dossiers
     ◦ Example: `Data-Sharing-Policy: https://example.com/privacy#data-sharing`
     ◦ Summary Example: `Data-Sharing-Policy: No personal information shared with third parties for marketing. Required data may be shared with regulatory bodies for compliance audits.`
+    
 `Unlinkability-Support`
     ◦ Value: A statement declaring the Verifier's commitment to supporting and enforcing unlinkable presentations, explicitly stating that presentations will not be used to track users across sessions or collude with Issuers
     - This is critical for preventing pervasive tracking
     ◦ Example: `Unlinkability-Support: This verifier supports unlinkable presentations and will not attempt to link user sessions.`
+    
 `Abuse-Reporting-Mechanism`
     ◦ Value: A URL or email address specifically dedicated to reporting misuse or abuse of digital ID requests by the Verifier
     ◦ Example: `Abuse-Reporting-Mechanism: mailto:abuse@example.com`
