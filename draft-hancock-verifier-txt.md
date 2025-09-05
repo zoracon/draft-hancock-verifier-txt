@@ -14,13 +14,6 @@ area: AREA
 workgroup: 
 keyword:
  - digital id
-venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
 
 author:
  -
@@ -126,7 +119,7 @@ Value: A statement asserting the Verifier's commitment to the principle of data 
 
 Value: A description or URL detailing how user consent for data presentation and processing is obtained and managed.
 - Example: `Consent-Mechanism: Explicit user consent obtained via in-app prompt and digital wallet interface before data presentation.`
-- 
+  
 # Placement and Access
 The `verifier.txt` file MUST be placed in the / (root) directory of the Verifier's web server. It SHOULD also be accessible via the `.well-known` URI for greater discoverability, e.g., `https://example.com/.well-known/verifier.txt`.
 
