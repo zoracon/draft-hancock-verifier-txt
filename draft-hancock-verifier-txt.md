@@ -57,43 +57,52 @@ The verifier.txt file is a plain text file encoded in UTF-8, consisting of "Fiel
 
 # Required Fields
 The following fields MUST be present in a `verifier.txt` file:
+
 `Verifier-Name`
+
 Value: The official, legal name of the Verifier entity
 - Example: `Verifier-Name: Example Retail Inc.`
     
 `Contact`
+
 Value: An email address or URL for inquiries, support, and abuse reporting. This should be actively monitored.
 - Example: `Contact: mailto:privacy@example.com or Contact: https://example.com/privacy-inquiries`
     
 `Purpose-of-Verification`
-- Value: A clear and concise statement describing the explicit purpose for requesting digital ID information. This helps prevent "mission creep" and ensures transparency about why data is needed
+
+Value: A clear and concise statement describing the explicit purpose for requesting digital ID information. This helps prevent "mission creep" and ensures transparency about why data is needed
 - Examples:
   - `Purpose-of-Verification: To verify age for access to adult content.`
   - `Purpose-of-Verification: To confirm identity for account creation and legal compliance.`
   - `Purpose-of-Verification: To verify eligibility for employer-provided benefits.`
         
 `Requested-Attributes`
+
 Value: A comma-separated list of the specific attributes the Verifier may request. Each attribute SHOULD be accompanied by a notation indicating whether it is requested via Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain text). This directly supports empowered selective disclosure
 - Examples:
  - `Requested-Attributes: age_over_21 (ZKP), family_name (SD), email_domain (SD), driving_privileges (FD)`
  - `Requested-Attributes: age_over_18 (ZKP)`
         
 `Data-Retention-Policy`
+
 Value: A URL linking to the Verifier's comprehensive data retention policy, or a brief summary of how long collected data is kept and for what purpose. This addresses the concern that verifiers might store collected information indefinitely
 - Example: `Data-Retention-Policy: https://example.com/privacy#data-retention`
 - Summary Example: `Data-Retention-Policy: Age verification logs retained for 90 days for audit purposes. No explicit personal identifiers stored.`
     
 `Data-Sharing-Policy`
+
 Value: A URL linking to the Verifier's comprehensive data sharing policy, or a brief summary of whether and how collected data is shared with third parties (e.g., data brokers, other businesses, government agencies). This directly confronts the risk of data pooling and sale of user dossiers
 - Example: `Data-Sharing-Policy: https://example.com/privacy#data-sharing`
 - Summary Example: `Data-Sharing-Policy: No personal information shared with third parties for marketing. Required data may be shared with regulatory bodies for compliance audits.`
     
 `Unlinkability-Support`
+
 Value: A statement declaring the Verifier's commitment to supporting and enforcing unlinkable presentations, explicitly stating that presentations will not be used to track users across sessions or collude with Issuers
 - This is critical for preventing pervasive tracking
 - Example: `Unlinkability-Support: This verifier supports unlinkable presentations and will not attempt to link user sessions.`
     
 `Abuse-Reporting-Mechanism`
+
 Value: A URL or email address specifically dedicated to reporting misuse or abuse of digital ID requests by the Verifier
 - Example: `Abuse-Reporting-Mechanism: mailto:abuse@example.com`
 
@@ -105,16 +114,20 @@ Value: A URL pointing to the Verifier's entry in a recognized Verifier Registry.
 - Example: `Verifier-ID-Registry: https://verifier-registry.example.org/id/example-retail`
   
 `Auditing-Policy`
+
 Value: A URL to details about any independent audits performed on the Verifier's data handling and privacy compliance.
 - Example: `Auditing-Policy: https://example.com/security#audits`
   
 `Privacy-Preserving-Methods`
+
 Value: A comma-separated list of specific privacy-enhancing technologies (e.g., ZKP systems, homomorphic encryption) used in the verification process
 - Example: `Privacy-Preserving-Methods: Groth16 ZKPs, Pedersen Commitments`
   
 `Data-Minimization-Statement`
+
 Value: A statement asserting the Verifier's commitment to the principle of data minimization, collecting only the minimum necessary information required for the stated purpose
 - Example: `Data-Minimization-Statement: We adhere strictly to data minimization principles, requesting only essential attributes.`
+  
 `Consent-Mechanism`
 
 Value: A description or URL detailing how user consent for data presentation and processing is obtained and managed.
