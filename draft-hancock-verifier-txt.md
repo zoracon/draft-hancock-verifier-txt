@@ -51,9 +51,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 - Zero-Knowledge Proof (ZKP): A cryptographic method allowing a Holder to prove possession of an attribute (e.g., "age over 18") without revealing any other information, including the exact attribute value (e.g., date of birth)
 - Unlinkability: The property that prevents a Verifier from linking multiple presentations from the same Holder, and ideally prevents collusion between Issuers and Verifiers from tracking a Holder across sessions.
 
-# The verifier.txt File Format
+# The `verifier.txt` File Format
 
-The verifier.txt file is a plain text file encoded in UTF-8, consisting of "Field: Value" pairs, with each pair on a new line. Comments can be indicated by a hash symbol (#) at the beginning of a line. Fields are case-insensitive.
+The `verifier.txt` file is a plain text file encoded in UTF-8, consisting of "Field: Value" pairs, with each pair on a new line. Comments can be indicated by a hash symbol (#) at the beginning of a line. Fields are case-insensitive.
 
 # Required Fields
 The following fields MUST be present in a `verifier.txt` file:
