@@ -29,7 +29,7 @@ informative:
 
 --- abstract
 
-This document proposes a standard file format, `verifier.txt`, for digital identity verifiers to declare their identity, purpose for verification, data handling policies, and commitment to privacy-preserving practices. Inspired by robots.txt and security.txt, this file aims to provide transparency and establish a baseline of trust for individuals presenting digital credentials and for wallet applications or browsers mediating these interactions. The goal is to address concerns regarding verifier abuse, data retention, and unlinkability in the rapidly evolving digital identity landscape.
+This document proposes a standard file format, `verifier.txt`, for digital identity verifiers to declare themselves, purpose for verification, data handling policies, and commitment to privacy-preserving practices. Inspired by `robots.txt` and `security.txt`, this file aims to provide transparency and establish a baseline of trust for individuals presenting digital credentials and for wallet applications or browsers mediating these interactions. The goal is to address concerns regarding verifier abuse in the digital ID landscape.
 
 --- middle
 
@@ -37,7 +37,7 @@ This document proposes a standard file format, `verifier.txt`, for digital ident
 
 The increasing adoption of digital identification, such as Mobile Driver's Licenses (mDLs), presents significant privacy and equity challenges. Verifiers (relying parties) can request personal information without clear policies on what data is collected, how it's stored, or if it's shared, leading to potential surveillance and misuse.
 
-To foster trust and accountability, mechanisms are needed to ensure verifiers clearly communicate their practices. This RFC proposes verifier.txt as a machine-readable and human-readable standard that digital identity verifiers can publish to make their policies explicit, enabling informed consent from users and facilitating automated checks by wallet applications and browsers.
+To foster trust and accountability, mechanisms are needed to ensure verifiers clearly communicate their practices. This RFC proposes `verifier.txt` as a machine-readable and human-readable standard that digital identity verifiers can publish to make their policies explicit, enabling informed consent from users and facilitating automated checks by wallet applications and browsers.
 
 # Conventions and Definitions
 
@@ -78,7 +78,8 @@ Value: A clear and concise statement describing the explicit purpose for request
         
 `Requested-Attributes`
 
-Value: A comma-separated list of the specific attributes the Verifier may request. Each attribute SHOULD be accompanied by a notation indicating whether it is requested via Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain text). This directly supports empowered selective disclosure
+Value: A comma-separated list of the specific attributes the Verifier may request. Each attribute SHOULD be accompanied by a notation indicating whether it is requested via Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain text). 
+
 - Examples:
  - `Requested-Attributes: age_over_21 (ZKP), family_name (SD), email_domain (SD), driving_privileges (FD)`
  - `Requested-Attributes: age_over_18 (ZKP)`
@@ -97,7 +98,7 @@ Value: A URL linking to the Verifier's comprehensive data sharing policy, or a b
     
 `Unlinkability-Support`
 
-Value: A statement declaring the Verifier's commitment to supporting and enforcing unlinkable presentations, explicitly stating that presentations will not be used to track users across sessions or collude with Issuers
+Value: A statement declaring the Verifier's commitment to supporting and enforcing unlinkable presentations, explicitly stating that presentations will not be used to track users across sessions or collude with Issuers.
 - This is critical for preventing pervasive tracking
 - Example: `Unlinkability-Support: This verifier supports unlinkable presentations and will not attempt to link user sessions.`
     
@@ -111,7 +112,7 @@ Value: A URL or email address specifically dedicated to reporting misuse or abus
 The following fields are OPTIONAL but RECOMMENDED:
 
 `Verifier-ID-Registry`
-Value: A URL pointing to the Verifier's entry in a recognized Verifier Registry.This helps establish greater accountability and trust by linking to a broader oversight system.
+Value: A URL pointing to the Verifier's entry in a recognized Verifier Registry if their jurisdiction mandated a registry.
 - Example: `Verifier-ID-Registry: https://verifier-registry.example.org/id/example-retail`
   
 `Auditing-Policy`
@@ -142,7 +143,7 @@ Wallet applications, browsers, and other client-side agents SHOULD attempt to re
     
 # Security Considerations
 
-Authenticity: The authenticity of `verifier.txt` relies on the security of the Verifier's web server. Compromise of the server could lead to a malicious verifier.txt being served. Future iterations could explore digital signing of the `verifier.txt` file.
+Authenticity: The authenticity of `verifier.txt` relies on the security of the Verifier's web server. Compromise of the server could lead to a malicious `verifier.txt` being served. Future iterations could explore digital signing of the `verifier.txt` file.
 
 Spoofing: A malicious actor could attempt to spoof a `verifier.txt` file on their own domain to mislead users. This risk is mitigated by tying the `verifier.txt` to the actual domain of the relying party requesting the credential.
 
@@ -154,7 +155,7 @@ Completeness: While `verifier.txt` aims for transparency, it cannot guarantee th
 
 - It promotes data minimization and unlinkability, directly addressing major privacy concerns with digital ID systems
 - It does not, however, mitigate all privacy risks, such as the collection of other observable Personally Identifiable Information (PII) like IP addresses, or potential for browser fingerprinting
-- These issues require broader regulatory and technological solutions.
+- These issues require broader regulatory solutions.
 - The mere existence of a record in a Verifier’s database, even without explicit personal identifiers, can carry privacy implications (e.g., a record of viewing age-restricted content)
 - `Data-Retention-Policy` and `Data-Sharing-Policy` fields are crucial here.
 
