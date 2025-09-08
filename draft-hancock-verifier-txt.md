@@ -8,7 +8,6 @@ docname: draft-hancock-verifier-txt-latest
 submissiontype: "independent"
 number:
 date:
-consensus: true
 v: 3
 area: AREA
 workgroup: 
