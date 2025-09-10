@@ -40,7 +40,7 @@ To foster trust and accountability, mechanisms are needed to ensure verifiers cl
 
 # Conventions and Definitions
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+{::boilerplate bcp14-tagged}
 
 - Verifier: An entity (e.g., website, application, physical establishment) that requests and verifies digital identity credentials from a Holder
 - Holder: An individual who possesses and presents a digital identity credential
