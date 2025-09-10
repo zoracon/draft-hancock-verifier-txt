@@ -60,7 +60,10 @@ The following fields MUST be present in a `verifier.txt` file:
 `Verifier-Name`
 
 Value: The official, legal name of the Verifier entity
-- Example: `Verifier-Name: Example Retail Inc.`
+
+Example:
+
+- `Verifier-Name: Example Retail Inc.`
     
 `Contact`
 
