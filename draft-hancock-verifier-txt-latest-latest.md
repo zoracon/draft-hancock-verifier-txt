@@ -1,13 +1,10 @@
 ---
-###
 title: "A File Format to Assist Verifier Accountability"
 abbrev: "Verifier.txt File Format"
 category: info
 
 docname: draft-hancock-verifier-txt-latest
 submissiontype: "independent"
-number:
-date:
 v: 3
 area: AREA
 workgroup: 
@@ -19,11 +16,6 @@ author:
     fullname: Alexis Hancock
     organization: Electronic Frontier Foundation
     email: alexis@eff.org
-
-normative:
-
-informative:
-
 ...
 
 --- abstract
@@ -55,6 +47,7 @@ To foster trust and accountability, mechanisms are needed to ensure verifiers cl
 The `verifier.txt` file is a plain text file encoded in UTF-8, consisting of "Field: Value" pairs, with each pair on a new line. Comments can be indicated by a hash symbol (#) at the beginning of a line. Fields are case-insensitive.
 
 # Required Fields
+
 The following fields MUST be present in a `verifier.txt` file:
 
 `Verifier-Name`
