@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-09T00:59:41.513873+00:00",
+  "timestamp": "2025-09-11T00:59:33.282287+00:00",
   "repo": "zoracon/draft-hancock-verifier-txt",
   "labels": [
     {
@@ -50,5 +50,32 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOPqFBFc6n1niC",
+      "title": "formatting cleanup",
+      "url": "https://github.com/zoracon/draft-hancock-verifier-txt/pull/1",
+      "state": "OPEN",
+      "author": "dkg",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "These changes aren't substantive at all, they're just trying to make the draft a little bit cleaner and easier to read.",
+      "createdAt": "2025-09-10T15:02:26Z",
+      "updatedAt": "2025-09-10T15:02:26Z",
+      "baseRepository": "zoracon/draft-hancock-verifier-txt",
+      "baseRefName": "main",
+      "baseRefOid": "76f8b8ae3b42ec0efd484acbd234dbfe7c971f97",
+      "headRepository": "dkg/draft-hancock-verifier-txt",
+      "headRefName": "main",
+      "headRefOid": "0275816da3462024db35436b9c1575848060e2d2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
