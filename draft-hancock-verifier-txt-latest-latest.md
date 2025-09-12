@@ -3,7 +3,7 @@ title: "A File Format to Assist Verifier Accountability"
 abbrev: "Verifier.txt File Format"
 category: info
 
-docname: draft-hancock-verifier-txt-latest
+docname: draft-hancock-verifier-txt-latest-latest-latest
 submissiontype: "independent"
 v: 3
 area: AREA
