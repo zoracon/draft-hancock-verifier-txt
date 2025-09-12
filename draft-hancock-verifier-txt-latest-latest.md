@@ -1,13 +1,10 @@
 ---
-###
 title: "A File Format to Assist Verifier Accountability"
 abbrev: "Verifier.txt File Format"
 category: info
 
 docname: draft-hancock-verifier-txt-latest
 submissiontype: "independent"
-number:
-date:
 v: 3
 area: AREA
 workgroup: 
@@ -19,11 +16,6 @@ author:
     fullname: Alexis Hancock
     organization: Electronic Frontier Foundation
     email: alexis@eff.org
-
-normative:
-
-informative:
-
 ...
 
 --- abstract
@@ -40,7 +32,7 @@ To foster trust and accountability, mechanisms are needed to ensure verifiers cl
 
 # Conventions and Definitions
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+{::boilerplate bcp14-tagged}
 
 - Verifier: An entity (e.g., website, application, physical establishment) that requests and verifies digital identity credentials from a Holder
 - Holder: An individual who possesses and presents a digital identity credential
@@ -55,89 +47,135 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 The `verifier.txt` file is a plain text file encoded in UTF-8, consisting of "Field: Value" pairs, with each pair on a new line. Comments can be indicated by a hash symbol (#) at the beginning of a line. Fields are case-insensitive.
 
 # Required Fields
+
 The following fields MUST be present in a `verifier.txt` file:
 
-`Verifier-Name`
+## Verifier-Name
 
-Value: The official, legal name of the Verifier entity
-- Example: `Verifier-Name: Example Retail Inc.`
+`Verifier-Name` contains the official, legal name of the Verifier entity.
+
+Example:
+
+- `Verifier-Name: Example Retail Inc.`
     
-`Contact`
+## Contact
 
-Value: An email address or URL for inquiries, support, and abuse reporting. This should be actively monitored.
-- Example: `Contact: mailto:privacy@example.com or Contact: https://example.com/privacy-inquiries`
+`Contact` contains an email address or URL for inquiries, support, and abuse reporting. This should be actively monitored.
+
+Examples:
+
+- `Contact: mailto:privacy@example.com or Contact: https://example.com/privacy-inquiries`
     
-`Purpose-of-Verification`
+## Purpose-of-Verification
 
-Value: A clear and concise statement describing the explicit purpose for requesting digital ID information. This helps prevent "mission creep" and ensures transparency about why data is needed
-- Examples:
-  - `Purpose-of-Verification: To verify age for access to adult content.`
-  - `Purpose-of-Verification: To confirm identity for account creation and legal compliance.`
-  - `Purpose-of-Verification: To verify eligibility for employer-provided benefits.`
+`Purpose-of-Verification` contains a clear and concise statement describing the explicit purpose for requesting digital ID information. This helps prevent "mission creep" and ensures transparency about why data is needed
+
+Examples:
+
+- `Purpose-of-Verification: To verify age for access to adult content.`
+- `Purpose-of-Verification: To confirm identity for account creation and legal compliance.`
+- `Purpose-of-Verification: To verify eligibility for employer-provided benefits.`
         
-`Requested-Attributes`
+## Requested-Attributes
 
-Value: A comma-separated list of the specific attributes the Verifier may request. Each attribute SHOULD be accompanied by a notation indicating whether it is requested via Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain text). 
+`Requested-Attributes` contains a comma-separated list of the specific attributes the Verifier may request. Each attribute SHOULD be accompanied by a notation indicating whether it is requested via Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain text). 
 
-- Examples:
- - `Requested-Attributes: age_over_21 (ZKP), family_name (SD), email_domain (SD), driving_privileges (FD)`
- - `Requested-Attributes: age_over_18 (ZKP)`
+Examples:
+
+- `Requested-Attributes: age_over_21 (ZKP), family_name (SD), email_domain (SD), driving_privileges (FD)`
+- `Requested-Attributes: age_over_18 (ZKP)`
         
-`Data-Retention-Policy`
+## Data-Retention-Policy
 
-Value: A URL linking to the Verifier's comprehensive data retention policy, or a brief summary of how long collected data is kept and for what purpose. This addresses the concern that verifiers might store collected information indefinitely
-- Example: `Data-Retention-Policy: https://example.com/privacy#data-retention`
-- Summary Example: `Data-Retention-Policy: Age verification logs retained for 90 days for audit purposes. No explicit personal identifiers stored.`
+`Data-Retention-Policy` contains a URL linking to the Verifier's comprehensive data retention policy, or a brief summary of how long collected data is kept and for what purpose. This addresses the concern that verifiers might store collected information indefinitely
+
+Examples:
+
+- `Data-Retention-Policy: https://example.com/privacy#data-retention`
+
+Summary Examples:
+
+- `Data-Retention-Policy: Age verification logs retained for 90 days for audit purposes. No explicit personal identifiers stored.`
     
-`Data-Sharing-Policy`
+## Data-Sharing-Policy
 
-Value: A URL linking to the Verifier's comprehensive data sharing policy, or a brief summary of whether and how collected data is shared with third parties (e.g., data brokers, other businesses, government agencies). This directly confronts the risk of data pooling and sale of user dossiers
-- Example: `Data-Sharing-Policy: https://example.com/privacy#data-sharing`
-- Summary Example: `Data-Sharing-Policy: No personal information shared with third parties for marketing. Required data may be shared with regulatory bodies for compliance audits.`
+`Data-Sharing-Policy` contains a URL linking to the Verifier's comprehensive data sharing policy, or a brief summary of whether and how collected data is shared with third parties (e.g., data brokers, other businesses, government agencies). This directly confronts the risk of data pooling and sale of user dossiers
+
+Examples:
+
+- `Data-Sharing-Policy: https://example.com/privacy#data-sharing`
+
+Summary Example:
+
+- `Data-Sharing-Policy: No personal information shared with third parties for marketing. Required data may be shared with regulatory bodies for compliance audits.`
     
-`Unlinkability-Support`
+## Unlinkability-Support
 
-Value: A statement declaring the Verifier's commitment to supporting and enforcing unlinkable presentations, explicitly stating that presentations will not be used to track users across sessions or collude with Issuers.
-- This is critical for preventing pervasive tracking
-- Example: `Unlinkability-Support: This verifier supports unlinkable presentations and will not attempt to link user sessions.`
+`Unlinkability-Support` contains a statement declaring the Verifier's commitment to supporting and enforcing unlinkable presentations, explicitly stating that presentations will not be used to track users across sessions or collude with Issuers.
+This is critical for preventing pervasive tracking
+
+Example:
+
+- `Unlinkability-Support: This verifier supports unlinkable presentations and will not attempt to link user sessions.`
     
-`Abuse-Reporting-Mechanism`
+## Abuse-Reporting-Mechanism
 
-Value: A URL or email address specifically dedicated to reporting misuse or abuse of digital ID requests by the Verifier
-- Example: `Abuse-Reporting-Mechanism: mailto:abuse@example.com`
+`Abuse-Reporting-Mechanism` contains a URL or email address specifically dedicated to reporting misuse or abuse of digital ID requests by the Verifier
+
+Example:
+
+- `Abuse-Reporting-Mechanism: mailto:abuse@example.com`
   
 # Optional Fields
 
 The following fields are OPTIONAL but RECOMMENDED:
 
-`Verifier-ID-Registry`
-Value: A URL pointing to the Verifier's entry in a recognized Verifier Registry if their jurisdiction mandated a registry.
-- Example: `Verifier-ID-Registry: https://verifier-registry.example.org/id/example-retail`
-  
-`Auditing-Policy`
+## Verifier-ID-Registry
 
-Value: A URL to details about any independent audits performed on the Verifier's data handling and privacy compliance.
-- Example: `Auditing-Policy: https://example.com/security#audits`
-  
-`Privacy-Preserving-Methods`
+`Verifier-ID-Registry` contains a URL pointing to the Verifier's entry in a recognized Verifier Registry if their jurisdiction mandated a registry.
 
-Value: A comma-separated list of specific privacy-enhancing technologies (e.g., ZKP systems, homomorphic encryption) used in the verification process
-- Example: `Privacy-Preserving-Methods: Groth16 ZKPs, Pedersen Commitments`
-  
-`Data-Minimization-Statement`
+Examples:
 
-Value: A statement asserting the Verifier's commitment to the principle of data minimization, collecting only the minimum necessary information required for the stated purpose
-- Example: `Data-Minimization-Statement: We adhere strictly to data minimization principles, requesting only essential attributes.`
+- `Verifier-ID-Registry: https://verifier-registry.example.org/id/example-retail`
   
-`Consent-Mechanism`
+## Auditing-Policy
 
-Value: A description or URL detailing how user consent for data presentation and processing is obtained and managed.
-- Example: `Consent-Mechanism: Explicit user consent obtained via in-app prompt and digital wallet interface before data presentation.`
+`Auditing-Policy` contains a URL to details about any independent audits performed on the Verifier's data handling and privacy compliance.
+
+Example:
+
+- `Auditing-Policy: https://example.com/security#audits`
+  
+## Privacy-Preserving-Methods
+
+`Privacy-Preserving-Methods` contains a comma-separated list of specific privacy-enhancing technologies (e.g., ZKP systems, homomorphic encryption) used in the verification process
+
+Example:
+
+- `Privacy-Preserving-Methods: Groth16 ZKPs, Pedersen Commitments`
+  
+## Data-Minimization-Statement
+
+`Data-Minimization-Statement` contains a statement asserting the Verifier's commitment to the principle of data minimization, collecting only the minimum necessary information required for the stated purpose
+
+Example: 
+
+- `Data-Minimization-Statement: We adhere strictly to data minimization principles, requesting only essential attributes.`
+  
+## Consent-Mechanism
+
+`Consent-Mechanism` contains a description or URL detailing how user consent for data presentation and processing is obtained and managed.
+
+Example:
+
+- `Consent-Mechanism: Explicit user consent obtained via in-app prompt and digital wallet interface before data presentation.`
   
 # Placement and Access
+
 The `verifier.txt` file MUST be placed in the / (root) directory of the Verifier's web server. It SHOULD also be accessible via the `.well-known` URI for greater discoverability, e.g., `https://example.com/.well-known/verifier.txt`.
 
 # Processing Rules
+
 Wallet applications, browsers, and other client-side agents SHOULD attempt to retrieve `verifier.txt` from the domain associated with the Verifier. If the file is found, its declarations SHOULD be presented to the user in a clear, understandable manner (e.g., within the digital wallet interface) before a credential presentation is initiated. Clients SHOULD flag or prevent interactions with Verifiers that fail to provide a `verifier.txt` file or whose policies contradict user preferences or best practices.
     
 # Security Considerations
