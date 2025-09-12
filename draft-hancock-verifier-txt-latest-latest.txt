@@ -4,8 +4,8 @@
 
 Network Working Group                                         A. Hancock
 Internet-Draft                            Electronic Frontier Foundation
-Intended status: Informational                          8 September 2025
-Expires: 12 March 2026
+Intended status: Informational                         12 September 2025
+Expires: 16 March 2026
 
 
             A File Format to Assist Verifier Accountability
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 March 2026.
+   This Internet-Draft will expire on 16 March 2026.
 
 Copyright Notice
 
@@ -57,12 +57,26 @@ Table of Contents
    2.  Conventions and Definitions
    3.  The verifier.txt File Format
    4.  Required Fields
+     4.1.  Verifier-Name
+     4.2.  Contact
+     4.3.  Purpose-of-Verification
+     4.4.  Requested-Attributes
+     4.5.  Data-Retention-Policy
+     4.6.  Data-Sharing-Policy
+     4.7.  Unlinkability-Support
+     4.8.  Abuse-Reporting-Mechanism
    5.  Optional Fields
+     5.1.  Verifier-ID-Registry
+     5.2.  Auditing-Policy
+     5.3.  Privacy-Preserving-Methods
+     5.4.  Data-Minimization-Statement
+     5.5.  Consent-Mechanism
    6.  Placement and Access
    7.  Processing Rules
    8.  Security Considerations
    9.  Privacy Considerations
    10. IANA Considerations
+   11. Normative References
    Acknowledgments
    Author's Address
 
@@ -85,8 +99,10 @@ Table of Contents
 2.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-   document are to be interpreted as described in RFC 2119.
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
    *  Verifier: An entity (e.g., website, application, physical
       establishment) that requests and verifies digital identity
@@ -126,116 +142,171 @@ Table of Contents
 
    The following fields MUST be present in a verifier.txt file:
 
-   Verifier-Name
+4.1.  Verifier-Name
 
-   Value: The official, legal name of the Verifier entity - Example:
-   Verifier-Name: Example Retail Inc.
+   Verifier-Name contains the official, legal name of the Verifier
+   entity.
 
-   Contact
+   Example:
 
-   Value: An email address or URL for inquiries, support, and abuse
-   reporting.  This should be actively monitored. - Example: Contact:
-   mailto:privacy@example.com or Contact: https://example.com/privacy-
-   inquiries
+   *  Verifier-Name: Example Retail Inc.
 
-   Purpose-of-Verification
+4.2.  Contact
 
-   Value: A clear and concise statement describing the explicit purpose
-   for requesting digital ID information.  This helps prevent "mission
-   creep" and ensures transparency about why data is needed - Examples:
-   - Purpose-of-Verification: To verify age for access to adult content.
-   - Purpose-of-Verification: To confirm identity for account creation
-   and legal compliance.  - Purpose-of-Verification: To verify
-   eligibility for employer-provided benefits.
+   Contact contains an email address or URL for inquiries, support, and
+   abuse reporting.  This should be actively monitored.
 
-   Requested-Attributes
+   Examples:
 
-   Value: A comma-separated list of the specific attributes the Verifier
-   may request.  Each attribute SHOULD be accompanied by a notation
-   indicating whether it is requested via Selective Disclosure (SD),
-   Zero-Knowledge Proof (ZKP), or as a Full-Disclosure (FD) value (plain
-   text).
+   *  Contact: mailto:privacy@example.com or Contact:
+      https://example.com/privacy-inquiries
 
-   *  Examples:
+4.3.  Purpose-of-Verification
+
+   Purpose-of-Verification contains a clear and concise statement
+   describing the explicit purpose for requesting digital ID
+   information.  This helps prevent "mission creep" and ensures
+   transparency about why data is needed
+
+   Examples:
+
+   *  Purpose-of-Verification: To verify age for access to adult
+      content.
+
+   *  Purpose-of-Verification: To confirm identity for account creation
+      and legal compliance.
+
+   *  Purpose-of-Verification: To verify eligibility for employer-
+      provided benefits.
+
+4.4.  Requested-Attributes
+
+   Requested-Attributes contains a comma-separated list of the specific
+   attributes the Verifier may request.  Each attribute SHOULD be
+   accompanied by a notation indicating whether it is requested via
+   Selective Disclosure (SD), Zero-Knowledge Proof (ZKP), or as a Full-
+   Disclosure (FD) value (plain text).
+
+   Examples:
 
    *  Requested-Attributes: age_over_21 (ZKP), family_name (SD),
       email_domain (SD), driving_privileges (FD)
 
    *  Requested-Attributes: age_over_18 (ZKP)
 
-   Data-Retention-Policy
+4.5.  Data-Retention-Policy
 
-   Value: A URL linking to the Verifier's comprehensive data retention
-   policy, or a brief summary of how long collected data is kept and for
-   what purpose.  This addresses the concern that verifiers might store
-   collected information indefinitely - Example: Data-Retention-Policy:
-   https://example.com/privacy#data-retention - Summary Example: Data-
-   Retention-Policy: Age verification logs retained for 90 days for
-   audit purposes.  No explicit personal identifiers stored.
+   Data-Retention-Policy contains a URL linking to the Verifier's
+   comprehensive data retention policy, or a brief summary of how long
+   collected data is kept and for what purpose.  This addresses the
+   concern that verifiers might store collected information indefinitely
 
-   Data-Sharing-Policy
+   Examples:
 
-   Value: A URL linking to the Verifier's comprehensive data sharing
-   policy, or a brief summary of whether and how collected data is
-   shared with third parties (e.g., data brokers, other businesses,
-   government agencies).  This directly confronts the risk of data
-   pooling and sale of user dossiers - Example: Data-Sharing-Policy:
-   https://example.com/privacy#data-sharing - Summary Example: Data-
-   Sharing-Policy: No personal information shared with third parties for
-   marketing.  Required data may be shared with regulatory bodies for
-   compliance audits.
+   *  Data-Retention-Policy: https://example.com/privacy#data-retention
 
-   Unlinkability-Support
+   Summary Examples:
 
-   Value: A statement declaring the Verifier's commitment to supporting
-   and enforcing unlinkable presentations, explicitly stating that
-   presentations will not be used to track users across sessions or
-   collude with Issuers. - This is critical for preventing pervasive
-   tracking - Example: Unlinkability-Support: This verifier supports
-   unlinkable presentations and will not attempt to link user sessions.
+   *  Data-Retention-Policy: Age verification logs retained for 90 days
+      for audit purposes.  No explicit personal identifiers stored.
 
-   Abuse-Reporting-Mechanism
+4.6.  Data-Sharing-Policy
 
-   Value: A URL or email address specifically dedicated to reporting
-   misuse or abuse of digital ID requests by the Verifier - Example:
-   Abuse-Reporting-Mechanism: mailto:abuse@example.com
+   Data-Sharing-Policy contains a URL linking to the Verifier's
+   comprehensive data sharing policy, or a brief summary of whether and
+   how collected data is shared with third parties (e.g., data brokers,
+   other businesses, government agencies).  This directly confronts the
+   risk of data pooling and sale of user dossiers
+
+   Examples:
+
+   *  Data-Sharing-Policy: https://example.com/privacy#data-sharing
+
+   Summary Example:
+
+   *  Data-Sharing-Policy: No personal information shared with third
+      parties for marketing.  Required data may be shared with
+      regulatory bodies for compliance audits.
+
+4.7.  Unlinkability-Support
+
+   Unlinkability-Support contains a statement declaring the Verifier's
+   commitment to supporting and enforcing unlinkable presentations,
+   explicitly stating that presentations will not be used to track users
+   across sessions or collude with Issuers.  This is critical for
+   preventing pervasive tracking
+
+   Example:
+
+   *  Unlinkability-Support: This verifier supports unlinkable
+      presentations and will not attempt to link user sessions.
+
+4.8.  Abuse-Reporting-Mechanism
+
+   Abuse-Reporting-Mechanism contains a URL or email address
+   specifically dedicated to reporting misuse or abuse of digital ID
+   requests by the Verifier
+
+   Example:
+
+   *  Abuse-Reporting-Mechanism: mailto:abuse@example.com
 
 5.  Optional Fields
 
    The following fields are OPTIONAL but RECOMMENDED:
 
-   Verifier-ID-Registry Value: A URL pointing to the Verifier's entry in
-   a recognized Verifier Registry if their jurisdiction mandated a
-   registry. - Example: Verifier-ID-Registry: https://verifier-
-   registry.example.org/id/example-retail
+5.1.  Verifier-ID-Registry
 
-   Auditing-Policy
+   Verifier-ID-Registry contains a URL pointing to the Verifier's entry
+   in a recognized Verifier Registry if their jurisdiction mandated a
+   registry.
 
-   Value: A URL to details about any independent audits performed on the
-   Verifier's data handling and privacy compliance. - Example: Auditing-
-   Policy: https://example.com/security#audits
+   Examples:
 
-   Privacy-Preserving-Methods
+   *  Verifier-ID-Registry: https://verifier-registry.example.org/id/
+      example-retail
 
-   Value: A comma-separated list of specific privacy-enhancing
-   technologies (e.g., ZKP systems, homomorphic encryption) used in the
-   verification process - Example: Privacy-Preserving-Methods: Groth16
-   ZKPs, Pedersen Commitments
+5.2.  Auditing-Policy
 
-   Data-Minimization-Statement
+   Auditing-Policy contains a URL to details about any independent
+   audits performed on the Verifier's data handling and privacy
+   compliance.
 
-   Value: A statement asserting the Verifier's commitment to the
-   principle of data minimization, collecting only the minimum necessary
-   information required for the stated purpose - Example: Data-
-   Minimization-Statement: We adhere strictly to data minimization
-   principles, requesting only essential attributes.
+   Example:
 
-   Consent-Mechanism
+   *  Auditing-Policy: https://example.com/security#audits
 
-   Value: A description or URL detailing how user consent for data
-   presentation and processing is obtained and managed. - Example:
-   Consent-Mechanism: Explicit user consent obtained via in-app prompt
-   and digital wallet interface before data presentation.
+5.3.  Privacy-Preserving-Methods
+
+   Privacy-Preserving-Methods contains a comma-separated list of
+   specific privacy-enhancing technologies (e.g., ZKP systems,
+   homomorphic encryption) used in the verification process
+
+   Example:
+
+   *  Privacy-Preserving-Methods: Groth16 ZKPs, Pedersen Commitments
+
+5.4.  Data-Minimization-Statement
+
+   Data-Minimization-Statement contains a statement asserting the
+   Verifier's commitment to the principle of data minimization,
+   collecting only the minimum necessary information required for the
+   stated purpose
+
+   Example:
+
+   *  Data-Minimization-Statement: We adhere strictly to data
+      minimization principles, requesting only essential attributes.
+
+5.5.  Consent-Mechanism
+
+   Consent-Mechanism contains a description or URL detailing how user
+   consent for data presentation and processing is obtained and managed.
+
+   Example:
+
+   *  Consent-Mechanism: Explicit user consent obtained via in-app
+      prompt and digital wallet interface before data presentation.
 
 6.  Placement and Access
 
@@ -297,6 +368,17 @@ Table of Contents
 10.  IANA Considerations
 
    This document has no IANA actions.
+
+11.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 Acknowledgments
 
