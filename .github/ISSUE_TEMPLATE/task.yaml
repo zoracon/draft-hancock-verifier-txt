@@ -1,0 +1,12 @@
+name: Task
+description: TODO for Verifier.txt
+title: "[Task]: "
+type: Task
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Task description
+      description: Describe the work that needs to happen, and why.
+    validations:
+      required: true
