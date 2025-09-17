@@ -4,12 +4,12 @@
 
 Network Working Group                                         A. Hancock
 Internet-Draft                            Electronic Frontier Foundation
-Intended status: Informational                         12 September 2025
-Expires: 16 March 2026
+Intended status: Informational                         17 September 2025
+Expires: 21 March 2026
 
 
             A File Format to Assist Verifier Accountability
-                   draft-hancock-verifier-txt-latest
+            draft-hancock-verifier-txt-latest-latest-latest
 
 Abstract
 
@@ -22,6 +22,13 @@ Abstract
    applications or browsers mediating these interactions.  The goal is
    to address concerns regarding verifier abuse in the digital ID
    landscape.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/zoracon/draft-hancock-verifier-txt.
 
 Status of This Memo
 
@@ -38,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 March 2026.
+   This Internet-Draft will expire on 21 March 2026.
 
 Copyright Notice
 
