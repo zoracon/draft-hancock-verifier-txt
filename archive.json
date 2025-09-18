@@ -1,55 +1,72 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-16T00:58:25.439176+00:00",
+  "timestamp": "2025-09-18T00:57:53.669893+00:00",
   "repo": "zoracon/draft-hancock-verifier-txt",
   "labels": [
     {
-      "name": "bug",
-      "description": "Something isn't working",
-      "color": "d73a4a"
+      "name": "TASK",
+      "description": "",
+      "color": "a3daa0"
     },
     {
-      "name": "documentation",
-      "description": "Improvements or additions to documentation",
-      "color": "0075ca"
+      "name": "TYPO",
+      "description": "",
+      "color": "e3fca8"
     },
     {
-      "name": "duplicate",
-      "description": "This issue or pull request already exists",
-      "color": "cfd3d7"
+      "name": "HAS PR",
+      "description": "",
+      "color": "d61426"
     },
     {
-      "name": "enhancement",
-      "description": "New feature or request",
-      "color": "a2eeef"
+      "name": "QUESTION",
+      "description": "",
+      "color": "04c8d9"
     },
     {
-      "name": "good first issue",
-      "description": "Good for newcomers",
-      "color": "7057ff"
-    },
-    {
-      "name": "help wanted",
-      "description": "Extra attention is needed",
-      "color": "008672"
-    },
-    {
-      "name": "invalid",
-      "description": "This doesn't seem right",
-      "color": "e4e669"
-    },
-    {
-      "name": "question",
-      "description": "Further information is requested",
-      "color": "d876e3"
-    },
-    {
-      "name": "wontfix",
-      "description": "This will not be worked on",
-      "color": "ffffff"
+      "name": "REQUEST",
+      "description": "",
+      "color": "a8b829"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOPqFBFc7MH4X6",
+      "title": "[TASK] Scope Clarification",
+      "url": "https://github.com/zoracon/draft-hancock-verifier-txt/issues/2",
+      "state": "OPEN",
+      "author": "zoracon",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [
+        "TASK"
+      ],
+      "body": "> The verifier.txt proposal suggests that the verifier has one specific policy overall.  In practice, it seems possible that a single verifier might have multiple verification practices.  For example, CVS might want to know that you're old enough to buy nicotine gum; might want to verify your name and DoB to serve your prescription; and might want your SSN when you apply for a job.  Does one policy cover each presentation?  How should they be distinguished?",
+      "createdAt": "2025-09-17T04:31:54Z",
+      "updatedAt": "2025-09-17T04:31:54Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOPqFBFc7MH42y",
+      "title": "[TASK] Localization for VERIFIER.TXT Human Readable Explanations",
+      "url": "https://github.com/zoracon/draft-hancock-verifier-txt/issues/3",
+      "state": "OPEN",
+      "author": "zoracon",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [
+        "TASK"
+      ],
+      "body": ">I notice that some of the fields can contain some human language, but the specific language appears to be English.  how do you see this\naccomodating non-english speakers?",
+      "createdAt": "2025-09-17T04:33:17Z",
+      "updatedAt": "2025-09-17T04:33:17Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
